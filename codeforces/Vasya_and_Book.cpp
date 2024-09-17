@@ -1,36 +1,43 @@
-#include <iostream>
-#include <cmath>
+#include<bits/stdc++.h>
+#include<stdio.h>
 using namespace std;
 
-int minimumPresses(int n, int x, int y, int d) {
+#define ll long long
+#define fr(i,n)        for(int i=0;i<n;i++)
+ll ok[200015],b[200015];
+int main()
+{
+    ll n,i,k,l,ans,m;
+    cin>>n;
+    ll  p;
+    queue<ll>q;
 
-    if (abs(y - x) % d == 0) {
-        return abs(y - x) / d;
+    fr(i,n)
+    {
+        cin>>p;
+        q.push( p);
     }
+    fr(i,n) scanf("%lld",&b[i]);
+    fr(i,n)
+    {
+        cin>>m;
+        ans=0;
+        if(ok[b[i] ])
+        {
+            ans=0;
+            cout<<ans<<' ';continue;
+        }
 
-
-    int result = 1e9;
-
-
-        result = min(result, (x - 1 + d - 1) / d + (y - 1) / d);
+        else{
+        while(true)
+        {
+            ll g=q.front();
+            ok[g]=1;
+            ans++;
+            q.pop();
+            if(b[i]==g)break;
+        }
+        cout<<ans<<' ';
     }
-
-    if ((n - y) % d == 0) {
-
-        result = min(result, (n - x + d - 1) / d + (n - y) / d);
-    }
-
-
-    return result == 1e9 ? -1 : result;
-}
-
-int main() {
-    int t;
-    cin >> t;
-    while (t--) {
-        int n, x, y, d;
-        cin >> n >> x >> y >> d;
-        cout << minimumPresses(n, x, y, d) << endl;
-    }
-    return 0;
+  }
 }
