@@ -1,5 +1,4 @@
-#include <iostream>
-#include <stack>
+#include <bits/stdc++.h>
 using namespace std;
 
 int main() {
@@ -7,7 +6,6 @@ int main() {
     cin >> s;
     int wins = 0;
     stack<char> letters;
-    
     for (char c : s) {
         if (!letters.empty() && letters.top() == c) {
             wins++;
