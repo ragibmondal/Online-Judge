@@ -3,7 +3,6 @@
 using namespace std;
 
 int main() {
-    //vjudge user: gabrielisenberg
     string s;
     cin >> s;
     int wins = 0;
