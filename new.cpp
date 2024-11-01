@@ -1,33 +1,33 @@
 #include <iostream>
 #include <string>
+#include <vector>
+#include<algorithm>
 using namespace std;
+int main(){
+    int n;
+    cin>>n;
+    string s,t;
+    string marge_string;
+    vector<string> v;
+    for(int i=0;i<n;i++){
+        cin>>s>>t;
+        marge_string="";
+        int min_len=min(s.length(),t.length());
+        for(int j=0;j<min_len;j++){
+              marge_string+=s[j];
+              marge_string+=t[j];
 
-int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(NULL);
-    
-    int T;
-    cin >> T;
-    
-    while (T--) {
-        int N;
-        cin >> N;
-        
-        int start38_count = 0;
-        int ltime108_count = 0;
-        
-        for (int i = 0; i < N; i++) {
-            string contest;
-            cin >> contest;
-            if (contest == "START38") {
-                start38_count++;
-            } else if (contest == "LTIME108") {
-                ltime108_count++;
-            }
         }
-        
-        cout << start38_count << " " << ltime108_count << endl;
+        if(s.length()>t.length()){
+            marge_string += s.substr(min_len);
+        }
+        else{
+            marge_string +=t.substr(min_len);
+        }
+        v.push_back(marge_string);
     }
-    
+    for(auto x: v){
+        cout<<x<<"\n";
+    }
     return 0;
 }
