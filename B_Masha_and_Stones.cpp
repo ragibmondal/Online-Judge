@@ -14,25 +14,7 @@ int main() {
         vector<int>v;
         int a;
         cin>>a;
-        v.push_back(a);
-    }
-    bool flag=true;
-    for(int i=0;i<n;i++){
-        if(v[i]%2==0){
-            flag=true;
-        }
-        else if(v[i]%2!=0){
-            flag=false;
-        }
-    }
-    if(flag==true){
-        cout<<"YES"<<endl;
-    }
-    else if(flag==false){
-        cout<<"YES"<<endl;
-    }
-    else if(flag==true||flag==false){
-        cout<<"NO"<<endl;
+        if()
     }
     return 0;
 }
