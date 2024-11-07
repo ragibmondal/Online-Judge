@@ -22,7 +22,8 @@ int main() {
         }
         else if (arr[i] == arr[maxIndex] && i > maxIndex) {
             maxIndex = i;
-    }}
+    }
+    }
      cout<<maxIndex+1<<endl;
     return 0;
 }

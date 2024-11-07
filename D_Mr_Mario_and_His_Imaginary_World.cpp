@@ -7,7 +7,6 @@ int main() {
     
     int change = P - T;
 
-    // Check if the second bit is set in the change amount
     if (change & 2) {
         cout << "Yes" << endl;
     } else {

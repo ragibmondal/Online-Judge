@@ -14,5 +14,6 @@ int main() {
     int n2=s1.length();
     cout<<n1<<" "<<n2<<endl;
     cout<<s<<" "<<s1<<endl;
+ 
     return 0;
 }
