@@ -1,37 +1,30 @@
-/***************************************
-Author: Ragib Hasan
-Date: 2024-10-14 10:37:44
-****************************************/
 #include <bits/stdc++.h>
 using namespace std;
-int factorial(int n){
-    if(n==0||n==1){
-        return 1;
-    }
-    else
-    return n*factorial(n-1);
-}
 
-int main()
-{
-    ios::sync_with_stdio(false);
-    cin.tie(NULL);
+int main() {
+    int n;
+    cin >> n;
+    vector<int> arr(n);
 
-    int t;
-    cin>>t;
-    int arr[t];
-    
-    vector<int>v;
-    
-    for(int i=0;i<t;i++){
-    int a=0;
-     cin>>arr[i];
-     a=factorial(arr[i]);
-     v.push_back(a);
-    }
-    for(int i=0;i<t;i++){
-        cout<<v[i]<<"\n";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
     }
 
+    for (int i = 0; i < n; i++) {
+        int p = arr[i];
+        long long s = 1;
+
+        // Calculate factorial and check for overflow
+        for (int j = 1; j <= p; j++) {
+            s *= j;
+            if (s < 0) {  // Overflow detected
+                cout << "Overflow for " << p << "!" << endl;
+                break;
+            }
+        }
+        if (s > 0) {
+            cout << s << endl;
+        }
+    }
     return 0;
 }
