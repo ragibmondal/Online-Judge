@@ -1,34 +1,24 @@
-/***************************************
-Author: Ragib Hasan
-Date: 2024-11-17 20:41:48
-****************************************/
 #include <bits/stdc++.h>
 using namespace std;
+void run() {
+    int n; cin >> n; // Read the number of elements for this test case
+    set<int> s; // Define a set to store unique elements
+    int ans = 0; // Counter for the result
 
-int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(NULL);
-    int t;
-    cin>>t;
-    while(t--){
-        int n;
-        cin>>n;
-        vector<int>a(n);
-        for(int i=0;i<n;i++){
-            cin>>a[i];
+    while (n--) {
+        int x; cin >> x; // Read an element
+        if (s.count(x)) { // If x is already in the set
+            ++ans; // Increment the answer
+            s.erase(x); // Remove x from the set
+        } else {
+            s.emplace(x); // Insert x into the set if it isn't already present
         }
-        unordered_map<int, int> freq;
-        for (int num : a) {
-            freq[num]++;
-        }
-        
-        // Calculate the score
-        int score = 0;
-        for (auto &[num, count] : freq) {
-            score += count / 2; // Maximum pairs for this element
-        }
-        
-        cout << score << endl;
     }
-    return 0;
+
+    cout << ans << '\n'; // Output the result for this test case
+}
+int main() {
+    cin.tie(0)->sync_with_stdio(0); // Optimize input/output
+    int t; cin >> t; // Read the number of test cases
+    while (t--) run(); // Process each test case using `run()`
 }
