@@ -1,6 +1,6 @@
 /***************************************
 Author: Ragib Hasan
-Date: 2024-11-20 19:33:29
+Date: 2024-11-20 19:02:42
 ****************************************/
 #include <bits/stdc++.h>
 #define ll long long
@@ -10,26 +10,25 @@ using namespace std;
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(NULL);
-    ll n,p;
-    cin>>n>>p;
-
-    vector<int>v(n);
+    int n;
+    cin>>n;
+    vector<ll>v(n);
     loop{
         cin>>v[i];
     }
-    bool found=false;
+    sort(v.begin(),v.end());
+   
+    int count=0;
     loop{
-        if(v[i]==p){
-         found=true;
+        if(v[i]>50){
+            count++;
         }
     }
-    if(found){
-        cout<<"Senti Aunti Ramva will never be mine"<<endl;
+     loop{
+        cout<<v[i]<<" ";
     }
-    else{
-        cout<<"Senti Aunti Ramva is mine"<<endl;
-    }
-
+    cout<<endl;
+    cout<<count<<endl;
 
     return 0;
 }
