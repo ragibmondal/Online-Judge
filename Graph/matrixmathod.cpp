@@ -14,7 +14,7 @@ int main() {
     for(int i=0;i<n;i++){
         int u,v;
         cin>>u>>v;
-        adj[u][v]=1;
+        adj[u][v]=1;//space complexity O(n*n)
         adj[v][u]=1;
     }
     return 0;
