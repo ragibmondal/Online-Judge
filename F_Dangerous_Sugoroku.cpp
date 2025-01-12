@@ -16,30 +16,30 @@ int main() {
 
     queue<long long> q;
     q.push(1);
-    vector<bool> visited(min((long long)1000000, n) + 1, false);
+    vector<bool> vis(min((long long)1000000, n) + 1, false);
     
     if (n <= 1000000)
-      visited[1] = true;
+        vis[1] = true;
 
     while (!q.empty()) {
-        long long current_square = q.front();
+        long long c = q.front(); 
         q.pop();
 
-        if (current_square == n) {
+        if (c == n) {
             cout << "Yes" << endl;
             return 0;
         }
 
-        for (int i = a; i <= b; ++i) {
-            long long next_square = current_square + i;
+        for (int step = a; step <= b; ++step) {
+            long long nxt = c + step;
 
-            if (next_square > n) {
+            if (nxt > n) {
                 continue;
             }
 
             bool is_bad = false;
             for (int j = 0; j < m; ++j) {
-                if (next_square >= bad_ranges[j].first && next_square <= bad_ranges[j].second) {
+                if (nxt >= bad_ranges[j].first && nxt <= bad_ranges[j].second) {
                     is_bad = true;
                     break;
                 }
@@ -47,29 +47,25 @@ int main() {
 
             if (!is_bad) {
                 if (n <= 1000000) {
-                   if (!visited[next_square]) {
-                      visited[next_square] = true;
-                      q.push(next_square);
+                    if (!vis[nxt]) {
+                        vis[nxt] = true;
+                        q.push(nxt);
                     }
                 } else {
-                     bool can_reach_bad = false;
-                     for(auto range : bad_ranges){
-                          if(next_square < range.first){
-                               can_reach_bad = true;
-                               break;
-                           }
-
-                       }
-                     if(next_square == n || can_reach_bad)
-                           q.push(next_square);
-                 }
-
-             
+                    bool can_reach_bad = false;
+                    for (auto range : bad_ranges) {
+                        if (nxt < range.first) {
+                            can_reach_bad = true;
+                            break;
+                        }
+                    }
+                    if (nxt == n || can_reach_bad)
+                        q.push(nxt);
+                }
             }
         }
     }
 
     cout << "No" << endl;
-
     return 0;
 }
